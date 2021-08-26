@@ -1,0 +1,432 @@
+/* This mini project is about registration of participants for The Great Malaysian Marathon 2021 */
+main:- welcome.
+
+
+welcome:-
+	write('************************************************'),nl,
+	write('*   Welcome to The Great Malaysian Marathon 2021   *'),nl,
+	write('************************************************'),nl,nl,
+	write('For every input you enter, please followed by a full stop[.]'),
+	q1.
+
+/* Confirmation */
+q1:-
+	nl,write('Do you want to register for the marathon? (y=yes/n=no) '), nl,
+	nl,write(':>'),
+	read(ANS1), nl,
+	checkq1(ANS1).
+
+checkq1(n):-
+	nl, write('Thank you for visiting our page'),nl,end.
+
+checkq1(y):-
+	nl,write('Please choose number of participants.'), nl,
+	numparticipants.
+
+/* Select number of participants */
+numparticipants:-
+	nl,write('[a]- 1 persons.'), nl,
+	nl,write('[b]- 2 persons.'), nl,
+	nl,write('[c]- 4 persons.'), nl,
+	nl,write('[d]- 8 persons.'), nl,
+	nl,write(':>'),
+	read(ANS2),nl,
+	checkq2(ANS2).
+
+/* Select the category */
+checkq2(a):- 
+	nl, write('Please choose your category'),nl,selectcategory.
+checkq2(b):- 
+	nl, write('Please choose your category'),nl,selectcategory.
+checkq2(c):- 
+	nl, write('Please choose your category'),nl,selectcategory.
+checkq2(d):- 
+	nl, write('Please choose your category'),nl,selectcategory.
+
+
+selectcategory:-
+	nl,write('[1]- marathon_42KM.'),nl,
+	nl,write('[2]- marathon_21KM.'),nl,
+	nl,write('[3]- marathon_12KM.'),nl,
+	nl,write('[4]- marathon_5KM'),nl,
+	nl,write(':>'),
+	read(ANS3),nl,
+	selectcategory(ANS3).
+		
+selectcategory(1):- marathon_42KM.
+selectcategory(2):- marathon_21KM.
+selectcategory(3):- marathon_12KM.
+selectcategory(4):- marathon_5KM.
+
+/* Select options according to participants or users preferences */
+/* 42KM_Marathon */
+selectcategory(1):-
+	nl,write('Your category selection is 42KM Marathon'), nl,
+	categorySelection.
+
+			
+		categorySelection:-
+			nl,write('Please choose your category: [a]- 42KM Men Open, [b]- 42KM Women Open , [c]- 42KM Men Veteran , [d]- 42KM Women Veteran'), nl,
+			nl,write(':>'),
+			read(CATEGORY), nl,
+			entitleSelection.
+
+		entitleSelection:-
+			nl,write('Please choose your entitles with price: [1]- T-shirt, Medal and Certificates (RM 98) , [2]- Medal and Certificates (RM 68), [3]- Certificate only (RM 48).'), nl,
+			nl,write(':>'),
+			read(ENTITLE), nl,
+			tshirtSize.
+
+		tshirtSize:-
+			nl,write('What is the size of the t-shirt : [a]- XXL,  [b]- XL , [c]- L , [d]- M , [e]- S'), nl,
+			nl,write(':>'),
+			read(SIZE), nl,
+			checking1.
+
+	checking1:- 
+		nl,write('The marathon category that you choose is 42KM Marathon. '),nl, 
+		checking2.
+
+	checking2:- setCategory(CATEGORY).
+
+		setCategory(a):-
+			nl,write('Your category is 42KM Men Open. '),
+			checking3.
+
+		setCategory(b):-
+			nl,write('Your category is 42KM Women Open. '),
+			checking3.
+
+		setCategory(c):-
+			nl,write('Your category is 42KM Men Veteren . '), 
+			checking3.
+
+		setCategory(d):-
+			nl,write('Your category is 42KM Women Veteren . '), 
+			checking3.
+
+	checking3:- setEntitle(ENTITLE).
+
+		setEntitle(1):-
+			nl,write('The entitles that you chosen are T-shirt, Medal and Certificate with the price of RM 98.'),
+			checking4.
+
+		setEntitle(2):-
+			nl,write('The entitles that you chosen are Medal and Certificate with the price of RM 68.'),
+			checking4.
+
+		setEntitle(3):-
+			nl,write('The entitle that you chosen is Certificate only with the price of RM 48.'),
+			checking4.
+
+
+	checking4:- setSize(SIZE).
+
+		setSize(a):-
+			nl,write('Your T-shirt size is XXL.'), nl, nl,
+			end.
+
+		setSize(b):-
+			nl,write('Your T-shirt size is XL.'), nl, nl,
+			end.
+
+                setSize(c):-
+			nl,write('Your T-shirt size is L.'), nl, nl,
+			end.
+
+
+                setSize(d):-
+			nl,write('Your T-shirt size is M.'), nl, nl,
+			end.
+
+
+                setSize(e):-
+			nl,write('Your T-shirt size is S.'), nl, nl,
+			end.
+/* 42KM_Marathon */
+
+/* 21KM_Marathon */
+selectcategory(2):-
+	nl,write('Your category selection is 21KM Marathon'), nl,
+	categorySelection.
+
+			
+		categorySelection:-
+			nl,write('Please choose your category: [a]- 21KM Men Open, [b]- 21KM Women Open , [c]- 21KM Men Veteran , [d]- 21KM Women Veteran'), nl,
+			nl,write(':>'),
+			read(CATEGORY), nl,
+			entitleSelection.
+
+		entitleSelection:-
+			nl,write('Please choose your entitles with price: [1]- T-shirt, Medal and Certificates (RM 78) , [2]- Medal and Certificates (RM 58), [3]- Certificate only (RM 38).'), nl,
+			nl,write(':>'),
+			read(ENTITLE), nl,
+			tshirtSize.
+
+		tshirtSize:-
+			nl,write('What is the size of the t-shirt : [a]- XXL,  [b]- XL , [c]- L , [d]- M , [e]- S'), nl,
+			nl,write(':>'),
+			read(SIZE), nl,
+			checking1.
+
+	checking1:- 
+		nl,write('The marathon category that you choose is 21KM Marathon. '),nl, 
+		checking2.
+
+	checking2:- setCategory(CATEGORY).
+
+		setCategory(a):-
+			nl,write('Your category is 21KM Men Open. '),
+			checking3.
+
+		setCategory(b):-
+			nl,write('Your category is 21KM Women Open. '),
+			checking3.
+
+		setCategory(c):-
+			nl,write('Your category is 21KM Men Veteren . '), 
+			checking3.
+
+		setCategory(d):-
+			nl,write('Your category is 21KM Women Veteren . '), 
+			checking3.
+
+	checking3:- setEntitle(ENTITLE).
+
+		setEntitle(1):-
+			nl,write('The entitles that you chosen are T-shirt, Medal and Certificate with the price of RM 78.'),
+			checking4.
+
+		setEntitle(2):-
+			nl,write('The entitles that you chosen are Medal and Certificate with the price of RM 58.'),
+			checking4.
+
+		setEntitle(3):-
+			nl,write('The entitle that you chosen is Certificate only with the price of RM 38.'),
+			checking4.
+
+
+	checking4:- setSize(SIZE).
+
+		setSize(a):-
+			nl,write('Your T-shirt size is XXL.'), nl, nl,
+			end.
+
+		setSize(b):-
+			nl,write('Your T-shirt size is XL.'), nl, nl,
+			end.
+
+                setSize(c):-
+			nl,write('Your T-shirt size is L.'), nl, nl,
+			end.
+
+
+                setSize(d):-
+			nl,write('Your T-shirt size is M.'), nl, nl,
+			end.
+
+
+                setSize(e):-
+			nl,write('Your T-shirt size is S.'), nl, nl,
+			end.
+/* end of 21KM_Marathon*/
+
+/* 12KM_Marathon*/
+selectcategory(3):-
+	nl,write('Your category selection is 12KM Marathon'), nl,
+	categorySelection.
+
+			
+		categorySelection:-
+			nl,write('Please choose your category: [a]- 12KM Men Open, [b]- 12KM Women Open , [c]- 12KM Men Veteran , [d]- 12KM Women Veteran , [e]- 12KM Men Junior , [e]- 12KM Women Junior'), nl,
+			nl,write(':>'),
+			read(CATEGORY), nl,
+			entitleSelection.
+
+		entitleSelection:-
+			nl,write('Please choose your entitles with price: [1]- T-shirt, Medal and Certificates (RM 58) , [2]- Medal and Certificates (RM 38), [3]- Certificate only (RM 28).'), nl,
+			nl,write(':>'),
+			read(ENTITLE), nl,
+			tshirtSize.
+
+		tshirtSize:-
+			nl,write('What is the size of the t-shirt : [a]- XXL,  [b]- XL , [c]- L , [d]- M , [e]- S'), nl,
+			nl,write(':>'),
+			read(SIZE), nl,
+			checking1.
+
+	checking1:- 
+		nl,write('The marathon category that you choose is 12KM Marathon. '),nl, 
+		checking2.
+
+	checking2:- setCategory(CATEGORY).
+
+		setCategory(a):-
+			nl,write('Your category is 12KM Men Open. '),
+			checking3.
+
+		setCategory(b):-
+			nl,write('Your category is 12KM Women Open. '),
+			checking3.
+
+		setCategory(c):-
+			nl,write('Your category is 12KM Men Veteren . '), 
+			checking3.
+
+		setCategory(d):-
+			nl,write('Your category is 12KM Women Veteren . '), 
+			checking3.
+
+		setCategory(e):-
+			nl,write('Your category is 12KM Men Junior . '), 
+			checking3.
+
+		setCategory(f):-
+			nl,write('Your category is 12KM Women Junior . '), 
+			checking3.
+
+
+	checking3:- setEntitle(ENTITLE).
+
+		setEntitle(1):-
+			nl,write('The entitles that you chosen are T-shirt, Medal and Certificate with the price of RM 58.'),
+			checking4.
+
+		setEntitle(2):-
+			nl,write('The entitles that you chosen are Medal and Certificate with the price of RM 38.'),
+			checking4.
+
+		setEntitle(3):-
+			nl,write('The entitle that you chosen is Certificate only with the price of RM 28.'),
+			checking4.
+
+
+	checking4:- setSize(SIZE).
+
+		setSize(a):-
+			nl,write('Your T-shirt size is XXL.'), nl, nl,
+			end.
+
+		setSize(b):-
+			nl,write('Your T-shirt size is XL.'), nl, nl,
+			end.
+
+                setSize(c):-
+			nl,write('Your T-shirt size is L.'), nl, nl,
+			end.
+
+
+                setSize(d):-
+			nl,write('Your T-shirt size is M.'), nl, nl,
+			end.
+
+
+                setSize(e):-
+			nl,write('Your T-shirt size is S.'), nl, nl,
+			end.
+/* 12KM_Marathon */
+
+/* 5KM_Marathon */
+selectcategory(4):-
+	nl,write('Your category selection is 5KM Marathon'), nl,
+	categorySelection.
+
+			
+		categorySelection:-
+			nl,write('Please choose your category: [a]- 5KM Men Open, [b]- 5KM Women Open , [c]- 5KM Men Veteran , [d]- 5KM Women Veteran , [e]- 5KM Men Junior , [e]- 5KM Women Junior'), nl,
+			nl,write(':>'),
+			read(CATEGORY), nl,
+			entitleSelection.
+
+		entitleSelection:-
+			nl,write('Please choose your entitles with price: [1]- T-shirt, Medal and Certificates (RM 38) , [2]- Medal and Certificates (RM 28), [3]- Certificate only (RM 18).'), nl,
+			nl,write(':>'),
+			read(ENTITLE), nl,
+			tshirtSize.
+
+		tshirtSize:-
+			nl,write('What is the size of the t-shirt : [a]- XXL,  [b]- XL , [c]- L , [d]- M , [e]- S'), nl,
+			nl,write(':>'),
+			read(SIZE), nl,
+			checking1.
+
+	checking1:- 
+		nl,write('The marathon category that you choose is 5KM Marathon. '),nl, 
+		checking2.
+
+	checking2:- setCategory(CATEGORY).
+
+		setCategory(a):-
+			nl,write('Your category is 5KM Men Open. '),
+			checking3.
+
+		setCategory(b):-
+			nl,write('Your category is 5KM Women Open. '),
+			checking3.
+
+		setCategory(c):-
+			nl,write('Your category is 5KM Men Veteren . '), 
+			checking3.
+
+		setCategory(d):-
+			nl,write('Your category is 5KM Women Veteren . '), 
+			checking3.
+
+
+		setCategory(e):-
+			nl,write('Your category is 5KM Men Junior . '), 
+			checking3.
+
+		setCategory(f):-
+			nl,write('Your category is 5KM Women Junior . '), 
+			checking3.
+
+
+	checking3:- setEntitle(ENTITLE).
+
+		setEntitle(1):-
+			nl,write('The entitles that you chosen are T-shirt, Medal and Certificate with the price of RM 38.'),
+			checking4.
+
+		setEntitle(2):-
+			nl,write('The entitles that you chosen are Medal and Certificate with the price of RM 28.'),
+			checking4.
+
+		setEntitle(3):-
+			nl,write('The entitle that you chosen is Certificate only with the price of RM 18.'),
+			checking4.
+
+
+	checking4:- setSize(SIZE).
+
+		setSize(a):-
+			nl,write('Your T-shirt size is XXL.'), nl, nl,
+			end.
+
+		setSize(b):-
+			nl,write('Your T-shirt size is XL.'), nl, nl,
+			end.
+
+                setSize(c):-
+			nl,write('Your T-shirt size is L.'), nl, nl,
+			end.
+
+
+                setSize(d):-
+			nl,write('Your T-shirt size is M.'), nl, nl,
+			end.
+
+
+                setSize(e):-
+			nl,write('Your T-shirt size is S.'), nl, nl,
+			end.
+/* end of 5KM_Marathon */
+
+end:-
+	nl,write('Thank you for visiting Great Malaysian Marathon 2021!'), nl,
+        nl,write('Please take note.'), nl,
+        nl,write('The reporting time of the marathon is at 11.35pm on 2 Oct 2021.'), nl,
+	nl,write('The marathon will held from 5:00PM (2 Oct 2021) until 4:00AM (3 Oct 2021) at Stadium Bukit Jalil.'), nl,
+	nl,write('The cut off time of the marathon is at 3:00am.'), nl,
+	nl,write('Payment can be made on the reporting time'), nl,
+	nl,write('Strategize and Stay Hydrated, thank you').
