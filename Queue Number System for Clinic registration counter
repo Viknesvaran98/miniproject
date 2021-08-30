@@ -1,0 +1,110 @@
+#include <iostream>
+#include<queue>
+
+using namespace std;
+
+struct Patient {
+	int q_no;
+	string name;
+};
+
+int menu() {
+    int choose;
+    cout<<"\nQueue Number System"<<endl;
+    cout<<"1) Generate queue"<<endl;
+    cout<<"2) Get total waiting patients"<<endl;
+    cout<<"3) Display all waiting patients"<<endl;
+    cout<<"4) Serve patient"<<endl;
+    cout<<"5) Exit"<<endl;
+    cout<<"Select Menu: ";
+    cin>>choose;
+    return choose;
+	/* to display and return user’s selection*/
+}
+
+void append(queue<Patient> &reg) {
+    Patient pesakit;
+    cout<<"Please Enter Name: ";
+    getchar();
+    getline(cin,pesakit.name);
+    cout<<"Please enter number: ";
+    cin>> pesakit.q_no;
+    reg.push(pesakit);
+	/*to get input name from user and add patient record (name and queue no) to the
+     queue */
+}
+
+void inQueue(queue<Patient> reg) {
+    cout<<"Total patients in queue: "<<reg.size()<<endl;
+	/*to return total no of patient in queue*/
+}
+
+void display(queue<Patient> reg) {
+    int i=1;
+    cout<<"No. Queue Patient Name"<<endl;
+    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+    while(!reg.empty()){
+        cout<<i++<<"  "<<reg.front().q_no<<"  "<<reg.front().name<<endl;
+        reg.pop();
+    }
+}
+
+void serve(queue<Patient> &reg) {
+    char serve;
+    cout<<"Patient "<<reg.front().q_no<<" "<<reg.front().name<<" is served?[Y/N]: ";
+    cin>>serve;
+    if(serve=='Y'){
+        reg.pop();
+        cout<<"Queue is updated."<<endl;
+    }
+    
+	/*to serve patient in queue, only if user choose to*/
+}
+
+void keluar(queue<Patient> reg) {
+    char keluar;
+    cout<<"WARNING! Queue is not empty. Proceed? [Y/N]: ";
+    cin>>keluar;
+    if(keluar=='Y'){
+        reg.pop();
+        cout<<"Queue is not updated.";
+        cout<<"\nDeleting data in queue…"<<endl;
+    }
+}
+
+int main() {
+    queue<Patient>reg;
+    int choice, no;
+    string nm;
+
+	//create suitable object and variables
+
+    cout << " PATIENT QUEUE NUMBER SERVICE SYSTEM\n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+
+	do {
+		choice = menu();
+		switch (choice) {
+            case 1:
+                append(reg);
+                no++; //call function append()
+                break;
+            case 2:
+                inQueue(reg);
+                break;//call function inQueue () and display total no of patients in queue
+            case 3:
+                display(reg);
+                break;
+            //call function display ()
+            case 4:
+                serve(reg);//call function serve (). Display current amount of total pack served and in queue, income and profit to user
+            default:
+            break;
+		}
+	} while (choice != 5);
+	    keluar(reg);
+	    
+	   cout << "\nThank you and goodbye." << endl;
+	   
+      return 0;
+}
